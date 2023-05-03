@@ -1,6 +1,14 @@
 window.onload = function () {
   const estBtnEl = document.getElementById('estimateCost');
   estBtnEl.onclick = onEstBtnClick;
+
+  // uncomment these for stretch goals
+  // document.getElementById('under25_yes').onchange = on25OptionChange;
+  // document.getElementById('under25_no').onchange = on25OptionChange;
+
+  // setDisabledPropertyForOptions(true);
+  // document.getElementById('pickupDate').onchange = onDaysOrDateChange;
+  // document.getElementById('numberOfDays').onchange = onDaysOrDateChange;
 };
 
 function onEstBtnClick() {
@@ -32,4 +40,32 @@ function onEstBtnClick() {
   document.getElementById('optionsCost').innerHTML = optionsCost.toFixed(2);
   document.getElementById('under25surcharge').innerHTML = under25surcharge.toFixed(2);
   document.getElementById('totalDue').innerHTML = totalCost.toFixed(2);
+}
+
+function on25OptionChange() {
+  const row = document.getElementById('under25SurchargeRow');
+  if (document.getElementById('under25_yes').checked) {
+    row.style.display = 'table-row';
+  } else {
+    row.style.display = 'none';
+  }
+}
+
+function onDaysOrDateChange() {
+  const dateEl = document.getElementById('pickupDate');
+  const daysEl = document.getElementById('numberOfDays');
+
+  if (dateEl.value === '' || daysEl.value === '') {
+    setDisabledPropertyForOptions(true);
+  } else {
+    setDisabledPropertyForOptions(false);
+  }
+}
+
+function setDisabledPropertyForOptions(isDisabled) {
+  document.getElementById('tollTag').disabled = isDisabled;
+  document.getElementById('gps').disabled = isDisabled;
+  document.getElementById('roadsideAssistance').disabled = isDisabled;
+  document.getElementById('under25_yes').disabled = isDisabled;
+  document.getElementById('under25_no').disabled = isDisabled;
 }
