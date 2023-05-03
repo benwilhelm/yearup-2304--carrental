@@ -42,6 +42,12 @@ function onEstBtnClick() {
   document.getElementById('totalDue').innerHTML = totalCost.toFixed(2);
 }
 
+// Everything below this line is related to stretch goals
+
+/**
+ * This function is attached to the onchange event of the
+ * under 25 radio option
+ */
 function on25OptionChange() {
   const row = document.getElementById('under25SurchargeRow');
   if (document.getElementById('under25_yes').checked) {
@@ -51,6 +57,10 @@ function on25OptionChange() {
   }
 }
 
+/**
+ * This function is attached to the onchange event
+ * of *both* numberOfDays and pickupDate
+ */
 function onDaysOrDateChange() {
   const dateEl = document.getElementById('pickupDate');
   const daysEl = document.getElementById('numberOfDays');
@@ -62,6 +72,10 @@ function onDaysOrDateChange() {
   }
 }
 
+/**
+ * This function allows you to set all of the listed
+ * inputs to disabled or enabled by passing true or false respectively
+ */
 function setDisabledPropertyForOptions(isDisabled) {
   document.getElementById('tollTag').disabled = isDisabled;
   document.getElementById('gps').disabled = isDisabled;
