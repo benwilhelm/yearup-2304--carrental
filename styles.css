@@ -1,0 +1,7 @@
+table.cost-estimate tr > td:nth-child(2) {
+  text-align: right;
+}
+
+table.cost-estimate tr:last-child {
+  font-weight: bold;
+}
